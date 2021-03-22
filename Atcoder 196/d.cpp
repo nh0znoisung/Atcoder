@@ -31,18 +31,7 @@ typedef double ld;
 int h,w,a,b;
 int s[20][20];
 int ans = 0;
-// void printArr(){
-//     for(int i = 0; i<h; i++){
-//         for(int j = 0; j<w; j++){
-//             cout<<s[i][j]<<" ";
-//         }
-//             cout<<endl;
 
-//     }
-//     cout<<endl;
-//         cout<<endl;
-
-// }
 
 void solve(int a, int b){
     if(a == 0 && b== 0){
@@ -79,56 +68,19 @@ void solve(int a, int b){
         }
     }
 }
-// void solve(ll a,ll b)
-// {
-// 	ll i,j;
- 
-// 	if(a==0 && b==0){
-// 		++ans;
-// 		return;
-// 	}
- 
- 
-// 	for(i=1;i<=h;++i)
-// 	{
-// 		for(j=1;j<=w;++j)
-// 		{
-// 			if(s[i][j]==0)
-// 			{
-// 				if((j+1)<=w && s[i][j+1]==0)
-// 				{
-// 					s[i][j]=s[i][j+1]=2;
-// 					solve(a-1,b);
-// 					s[i][j]=s[i][j+1]=0;
-// 				}			
- 
-// 				if((i+1)<=h && s[i+1][j]==0)
-// 				{
-// 					s[i][j]=s[i+1][j]=2;
-// 					solve(a-1,b);
-// 					s[i][j]=s[i+1][j]=0;
-// 				}
- 
-// 				if(b>0)
-// 				{
-// 					s[i][j]=1;
-// 					solve(a,b-1);
-// 					s[i][j]=0;
-// 				}
- 
-// 				return ;
-// 			}
- 
-// 		}
-// 	}
- 
-// }
+
 
 int main() {
+    #ifndef ONLINE_JUDGE
+    freopen("a.in","r",stdin);
+    freopen("a.out","w",stdout);
+    #endif
     ios::sync_with_stdio(false);
     cin.tie(0);
     cin>>h>>w>>a>>b;
     solve(a,b);
     cout<<ans<<endl;
+
     return 0;
 }
+
