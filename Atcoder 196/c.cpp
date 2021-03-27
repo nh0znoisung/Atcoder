@@ -28,6 +28,49 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
 
+ll _10mu(ll x){
+    ll a =1;
+    for(int i = 0; i< x; i++) a *= 10;
+    return a;
+}
+ll dem(ll x){
+    ll a = 1;
+    while(x > 9) {
+        a *= x%10 + 1;
+        x /= 10;
+    }
+    return a*x;
+}
+
+void solve(){
+    ll n;
+    cin >> n;
+    ll num = 0;
+    ll m = n;
+    while(m > 0){
+        num++;
+        m /= 10;
+    }
+
+    if(num%2 != 0){
+        cout << _10mu(num/2) - 1;
+        return;
+    }
+
+    ll half = _10mu(num/2);
+    ll ans = half/10 - 1;
+    ll a = n/half;
+    ll b = n%half;
+
+    if(a>b) {
+        ans += dem(a-1);
+        
+    }
+    else ans+= dem(a);
+    cout << ans;
+
+}
+
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("a.in","r",stdin);
@@ -35,21 +78,7 @@ int main() {
 #endif
     ios::sync_with_stdio(false);
     cin.tie(0);
-    ll n;
-    cin>>n;
-    vector<string>a;
-    // string s = "";
-    for(ll i = 1; i<=1e6; i++){
-        // s = "";
-        string s = "";
-        s += to_string(i);
-        s += to_string(i);
-        if(stoll(s) > n) break;
-        a.push_back(s);
-        // if(stoll(s) > n) break;
-        // cout<<s<<endl;
-    }
-    cout<<a.size()<<endl;
+    solve();
 
     return 0;
 }
